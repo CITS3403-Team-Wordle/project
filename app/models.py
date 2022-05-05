@@ -2,7 +2,7 @@ from __init__ import db
 '''
 	TEST DEV DATABASE
 	TABLE: User
-	name varchar		passwd varchar		email varchar		uid ingeter
+	name String		passwd String		email String		uid Ingeter
 '''
 
 class User(db.Model):
