@@ -19,8 +19,11 @@ def create_app(config_type):
     db.init_app(app)
     
     #attach routes & errors
-    #
     from main import main as m_blueprint
     app.register_blueprint(m_blueprint)
     
+
+    from auth import auth as a_blueprint
+    app.register_blueprint(a_blueprint)
+
     return app
