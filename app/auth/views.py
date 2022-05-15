@@ -18,8 +18,9 @@ def login():
 		db.session.add(usr)
 		db.session.commit()
 		name = form.name.data
-		return redirect('index')
+		return redirect('main')
 	else:
 		print(form.errors)
 
 	return render_template('auth/login.html',form=form, name=name)
+

@@ -1,6 +1,19 @@
 from flask import render_template, session, redirect, url_for
+from flask import request, jsonify
 from app.main import main 
 
-@main.route('/index', methods=['POST', 'GET'])
-def main():
-	return render_template('index.html')
+@main.route('/', methods=['POST', 'GET'])
+def homepage():
+	return render_template('main.html')
+
+
+@main.route('/signup', methods=['POST'])
+def signup():
+
+	print(request.data)
+	
+	if request.form:
+		return jsonify({'success': "good data"})
+
+	else:
+		return jsonify({'error': "bad data"})
