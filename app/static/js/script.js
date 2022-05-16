@@ -16,8 +16,9 @@ mistakeTag = document.querySelector(".mistake span");
 timeTag = document.querySelector(".time span b");
 cpmTag = document.querySelector(".cpm span");
 wpmTag = document.querySelector(".wpm span");
+tryAgainButtonTag = document.querySelector(".try-again-button")
 
-let timer, maxTime = 60;
+let timer, maxTime = 60;    // set timer limit (in seconds)
 let timeLeft = maxTime;
 let charIndex = mistakes = 0;
 let isTyping = false;
@@ -28,6 +29,7 @@ let isTyping = false;
 function generateRandomParagraph() {
     // generate random number to get a random paragraph above
     let randIndex = Math.floor(Math.random() * paragraphs.length);
+    typingText.innerHTML = "";
     // split all chars in random paragraph in to spans and add them inside <p>
     paragraphs[randIndex].split("").forEach(span => {
         let spanTag = `<span>${span}</span>`;
@@ -42,38 +44,44 @@ function generateRandomParagraph() {
 function  initiateTyping() {
     const characters = typingText.querySelectorAll("span");
     let typedChar = inputField.value.split("")[charIndex];
-    if (!isTyping) {
-        timer = setInterval(initiateTimer, 1000);
-        isTyping = true;
-    }
-    if (typedChar == null) {
-        charIndex -= 1;
-        // make sure to only remove mistake count if class incorrect is there
-        if (characters[charIndex].classList.contains("incorrect")) {
-            mistakes -= 1;
+    if (charIndex < characters.length -1 && timeLeft > 0) {
+        if (!isTyping) {
+            timer = setInterval(initiateTimer, 1000);
+            isTyping = true;
         }
-        characters[charIndex].classList.remove("correct", "incorrect");
-    } else {
-        if (characters[charIndex].innerText === typedChar) {
-            characters[charIndex].classList.add("correct");
+        if (typedChar == null) {
+            charIndex -= 1;
+            // make sure to only remove mistake count if class incorrect is there
+            if (characters[charIndex].classList.contains("incorrect")) {
+                mistakes -= 1;
+            }
+            characters[charIndex].classList.remove("correct", "incorrect");
         } else {
-            mistakes += 1;
-            characters[charIndex].classList.add("incorrect");
+            if (characters[charIndex].innerText === typedChar) {
+                characters[charIndex].classList.add("correct");
+            } else {
+                mistakes += 1;
+                characters[charIndex].classList.add("incorrect");
+            }
+            charIndex += 1;
         }
-        charIndex += 1;
-    }
+        
+        characters.forEach(span => span.classList.remove("active"));
+        characters[charIndex].classList.add("active");
     
-    characters.forEach(span => span.classList.remove("active"));
-    characters[charIndex].classList.add("active");
-
-    let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
-    // having issues with infinity showing up so making it 0 until a nice number appears
-    if (wpm < 0 || !wpm || wpm === Infinity) {
-        wpm = 0;
+        let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
+        // having issues with infinity showing up so making it 0 until a nice number appears
+        if (wpm < 0 || !wpm || wpm === Infinity) {
+            wpm = 0;
+        }
+        mistakeTag.innerText = mistakes;
+        wpmTag.innerText = wpm;
+        cpmTag.innerText = charIndex - mistakes;
+    } else {
+        // here is where we need to submit results as the timer has ended.
+        inputField = "";    // clear input field ready for new test
+        clearInterval(timer);
     }
-    mistakeTag.innerText = mistakes;
-    wpmTag.innerText = wpm;
-    cpmTag.innerText = charIndex - mistakes;
 }
 
 function initiateTimer() {
@@ -85,8 +93,22 @@ function initiateTimer() {
     }
 };
 
+// reset vars and elements
+// gen new text paragraph
+function restartGame() {
+    generateRandomParagraph();
+    timeLeft = maxTime;
+    charIndex = mistakes = 0;
+    isTyping = false;
+    timeTag.innerText = timeLeft;
+    mistakeTag.innerText = mistakes;
+    wpmTag.innerText = wpm;
+    cpmTag.innerText = 0;
+}
+
 generateRandomParagraph();
 inputField.addEventListener("input", initiateTyping);
+tryAgainButtonTag.addEventListener("click", restartGame);
 
 
 
