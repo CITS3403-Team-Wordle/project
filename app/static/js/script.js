@@ -35,6 +35,7 @@ function generateRandomParagraph() {
         let spanTag = `<span>${span}</span>`;
         typingText.innerHTML += spanTag;
     });
+    typingText.querySelectorAll("span")[0].classList.add("active");
     // when a key is pressed or mouse clicked focus on the input field so they
     // can type and begin the test without clicking the space
     document.addEventListener("keydown", () => inputField.focus());
@@ -97,6 +98,8 @@ function initiateTimer() {
 // gen new text paragraph
 function restartGame() {
     generateRandomParagraph();
+    inputField.value = "";
+    clearInterval(timer);
     timeLeft = maxTime;
     charIndex = mistakes = 0;
     isTyping = false;
