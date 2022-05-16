@@ -9,8 +9,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
-    padding-top: 20em;
+    min-height: 5em;
+    padding-top: 5em;
 }
 
 .wrap {
@@ -41,9 +41,45 @@ body {
     text-align: justify;
 }
 
+.typing-text p span {
+    position: relative;
+}
+
+.typing-text p span.correct {
+    color: yellowgreen
+}
+
+.typing-text p span.incorrect {
+    color: red;
+    background: pink;
+    outline: 1px solid pink;
+    border-radius: 2px;
+}
+
+.typing-text p span.active {
+    color: rgb(111, 65, 226);
+}
+
+.typing-text p span.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background: rgb(111, 65, 226);
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+    }
+}
+
 .content-box .content {
     display: flex;
-    margin-top: 20px;
+    margin-top: 1em;
     padding: 5px 0;
     align-items: center;
     border-top: 1px solid grey;
