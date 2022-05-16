@@ -1,26 +1,29 @@
 $(document).ready(function() {
 
     $('#signup-form').on('submit', function(event) {
-
-        $.ajax({
-            data : {
-                email : $('#signup-email').val(),
-                password : $('#signup-password').val()
-            },
-            type : 'POST',
-            url : '/signup'
-        })
-        .done(function(data) {
-
-            if (data.error) {
-                $('#errorAlert').text(data.error).show();
-                $('#successAlert').hide();
-            } else {
-                $('#successAlert').text(data.success).show();
-                $('#errorAlert').hide();
-            }
-        })
         event.preventDefault();
+
+        data = {
+            email : $('#signup-email').val() ,
+            password : $('#signup-password').val(),
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/signup',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            context: Form,
+            success: function(callback) {
+                console.log(callback);
+                // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                $('#successAlert').text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');
+            },
+            error: function() {
+                $('#errorAlert').html("error!");
+            }
+        });
     })
 
 })
+
