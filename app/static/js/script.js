@@ -10,10 +10,18 @@ const paragraphs = [
     "One study examining 30 subjects, of varying different styles and expertise, has found minimal difference in typing speed between touch typists and self-taught hybrid typists. According to the study, \"The number of fingers does not determine typing speed... People using self-taught typing strategies were found to be as fast as trained typists... instead of the number of fingers, there are other factors that predict typing speed... fast typists... keep their hands fixed on one position, instead of moving them over the keyboard, and more consistently use the same finger to type a certain letter.\" To quote doctoral candidate Anna Feit: \"We were surprised to observe that people who took a typing course, performed at similar average speed and accuracy, as those that taught typing to themselves and only used 6 fingers on average\" (Wikipedia)",
     "Business meetings, and professional recordings can contain sensitive data, so security is something a transcription company should not overlook when providing services. Companies should therefore follow the various laws and industry best practice, especially so when serving law firms, government agencies or courts. Medical Transcription specifically is governed by HIPAA, which elaborates data security practices and compliance measures to be strictly followed, failure of which leads to legal action and penalties. Transcription security includes maintaining confidentiality of the data through information security practices including limiting access with passwords and ensuring a secure environment for data and appropriate methods of disposal of all materials and deletion of files. Personnel may be required to sign non-disclosure agreements on a regular basis as well as take various oaths regarding confidentiality and accuracy."
 ];
-const typingText = document.querySelector(".typing-text p"),
+const typingText = document.querySelector(".typing-text p");
 inputField = document.querySelector(".wrap .input-field");
+mistakeTag = document.querySelector(".mistake span");
+timeTag = document.querySelector(".time span b");
+cpmTag = document.querySelector(".cpm span");
+wpmTag = document.querySelector(".wpm span");
 
-let charIndex = 0;
+let timer, maxTime = 60;
+let timeLeft = maxTime;
+let charIndex = mistakes = 0;
+let isTyping = false;
+
 
 // ########### GAME LOGIC ###########
 
@@ -34,15 +42,48 @@ function generateRandomParagraph() {
 function  initiateTyping() {
     const characters = typingText.querySelectorAll("span");
     let typedChar = inputField.value.split("")[charIndex];
-    if (characters[charIndex].innerText === typedChar) {
-        characters[charIndex].classList.add("correct");
-    } else {
-        characters[charIndex].classList.add("incorrect");
+    if (!isTyping) {
+        timer = setInterval(initiateTimer, 1000);
+        isTyping = true;
     }
-    charIndex += 1;
+    if (typedChar == null) {
+        charIndex -= 1;
+        // make sure to only remove mistake count if class incorrect is there
+        if (characters[charIndex].classList.contains("incorrect")) {
+            mistakes -= 1;
+        }
+        characters[charIndex].classList.remove("correct", "incorrect");
+    } else {
+        if (characters[charIndex].innerText === typedChar) {
+            characters[charIndex].classList.add("correct");
+        } else {
+            mistakes += 1;
+            characters[charIndex].classList.add("incorrect");
+        }
+        charIndex += 1;
+    }
+    
     characters.forEach(span => span.classList.remove("active"));
     characters[charIndex].classList.add("active");
+
+    let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
+    // having issues with infinity showing up so making it 0 until a nice number appears
+    if (wpm < 0 || !wpm || wpm === Infinity) {
+        wpm = 0;
+    }
+    mistakeTag.innerText = mistakes;
+    wpmTag.innerText = wpm;
+    cpmTag.innerText = charIndex - mistakes;
 }
+
+function initiateTimer() {
+    if (timeLeft > 0) {
+        timeLeft -= 1;
+        timeTag.innerText = timeLeft;
+    } else {
+        clearInterval(timer);
+    }
+};
 
 generateRandomParagraph();
 inputField.addEventListener("input", initiateTyping);
