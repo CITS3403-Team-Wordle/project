@@ -10,10 +10,8 @@ def homepage():
 @main.route('/signup', methods=['POST'])
 def signup():
 
-	print(request.data)
-	
-	if request.form:
-		return jsonify({'success': "good data"})
+	print(request.get_json())
+	print('hello')
 
-	else:
-		return jsonify({'error': "bad data"})
+	
+	return jsonify({'error': "bad data"})
