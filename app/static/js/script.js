@@ -80,6 +80,7 @@ function  initiateTyping() {
         cpmTag.innerText = charIndex - mistakes;
     } else {
         // here is where we need to submit results as the timer has ended.
+        console.log("game finished.")
         inputField = "";    // clear input field ready for new test
         clearInterval(timer);
     }
@@ -105,7 +106,7 @@ function restartGame() {
     isTyping = false;
     timeTag.innerText = timeLeft;
     mistakeTag.innerText = mistakes;
-    wpmTag.innerText = wpm;
+    wpmTag.innerText = 0;
     cpmTag.innerText = 0;
 }
 
