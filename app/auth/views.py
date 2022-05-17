@@ -23,15 +23,15 @@ def login():
 	# temprarily skip the csrf_token validation
 	if form.validate_on_submit() or (len(form.errors)==1 and 'csrf_token' in form.errors):
 		user = User.query.filter_by(Email = form.Email.data).first()
+		#print(user)
 
 		if user and user.verify_password(form.Password.data):
 			login_user(user)
-
 			next_page = request.args.get('next')
-
 			if not next_page or url_parse(next_page).netloc != '':
 				next_page = '/'
-			return redirect(next_page)
+			return jsonify({ 'success': 'logged in'})
+		return jsonify({ 'error': 'bad user' })
 	else:
 			return jsonify({ 'error': 'bad user' })
 
