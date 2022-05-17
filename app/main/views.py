@@ -7,11 +7,14 @@ def homepage():
 	return render_template('main.html')
 
 
+'''
 @main.route('/signup', methods=['POST'])
 def signup():
 
-	print(request.get_json())
-	print('hello')
-
-	
-	return jsonify({'error': "bad data"})
+	json = request.get_json()
+	print(json)
+	if json['email'] and json['password']:
+		return jsonify({'success': 'logged in'})
+	else:
+		return jsonify({'error': "bad data"})
+'''

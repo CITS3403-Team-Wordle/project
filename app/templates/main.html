@@ -41,6 +41,17 @@
             <a href="#" class="nav-link">Stats</a>
           </li>
 
+          {% if current_user.is_authenticated %}
+
+          <li class="nav-item">
+            <h1> Hi, {{ current_user.username }}!</h1>
+          </li>
+
+          <li class = 'nav-item'>
+            <button id='logout-btn' type="button" >Log out</button>
+          </li>
+
+          {% else %}
           <!-- Login navbar link button -->
           <li class="nav-item">
             <button
@@ -69,6 +80,8 @@
         </ul>
       </div>
     </nav>
+
+    {% endif %}
 
     <!-- Login Modal -->
     <div class="modal fade" id="login-modal" tabindex="-1">
@@ -117,8 +130,22 @@
                   >
                 </p>
               </h5>
+              <button type="submit">submit</button>
             </form>
+              <div
+                id="loginSuccess"
+                class="alert alert-success"
+                role="alert"
+                style="display: none"
+              ></div>
+              <div
+                id="loginError"
+                class="alert alert-danger"
+                role="alert"
+                style="display: none"
+              ></div>
           </div>
+
           <div class="modal-footer justify-content-center">
             <button
               type="button"
@@ -146,6 +173,14 @@
           </div>
           <div class="modal-body">
             <form action="/signup" id="signup-form" method="post">
+
+              <input type="hidden" name="csrf_token" value="cits3403"/>
+
+              <div class="form-group">
+                <label for="signup-password" class="modal-form-text">Username</label>
+                <input type="text" class='form-control' id="signup-username" placeholder="name">
+              </div>
+
               <div class="form-group">
                 <label for="signup-email" class="modal-form-text">Email</label>
                 <input
@@ -166,18 +201,21 @@
                   placeholder="********"
                 />
               </div>
-
+              <div class="form-group">
+                <label for="signup-password" class="modal-form-text">Password Confirm</label>
+                <input type="password" class='form-control' id="signup-password-confirm" placeholder="********">
+              </div>
               <button type="submit">submit</button>
             </form>
 
             <div
-              id="successAlert"
+              id="signSuccess"
               class="alert alert-success"
               role="alert"
               style="display: none"
             ></div>
             <div
-              id="errorAlert"
+              id="signError"
               class="alert alert-danger"
               role="alert"
               style="display: none"
@@ -261,35 +299,6 @@
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-        $('#signup-form').on('submit', function(event) {
-            event.preventDefault();
-
-            data = {
-                email : $('#signup-email').val() ,
-                password : $('#signup-password').val(),
-            }
-            $.ajax({
-                type: 'POST',
-                url: '/signup',
-                dataType: 'json',
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data),
-            })
-            .done(function(data) {
-              if (data.error) {
-                $('#errorAlert').text(data.error).show();
-                $('#successAlert').hide();
-              } else {
-                $('#successAlert').text(data.success).show();
-                $('#errorAlert').hide();
-              }
-            });
-        })
-      })
-
-    </script>
+    <script type="text/javascript" src='./static/js/script.js'></script>
   </body>
 </html>
