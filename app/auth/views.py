@@ -1,26 +1,72 @@
-from flask import render_template, session, redirect, url_for, request
+from flask import render_template, session, redirect, url_for, request, jsonify
+import wtforms_json
+from flask_login import login_user, logout_user, login_required
+from werkzeug.urls import url_parse
+
 
 #import os
 
-from app.auth.forms import LoginForm
+from app.auth.forms import signupForm, loginForm
 from app.auth import auth
 from app import db
 from app.models import User
 
-
-@auth.route('/login', methods=['POST', 'GET'])
+@auth.route('/login', methods=['POST'])
 def login():
-	form = LoginForm(request.form)
-	name = None
+	#print('start login')
+	json = request.get_json()
+	form = loginForm(
+		Email = json['Email'],
+		Password = json['Password'],
+		Remember_me = json['Remember_me']
+	)
+	# temprarily skip the csrf_token validation
+	if form.validate_on_submit() or (len(form.errors)==1 and 'csrf_token' in form.errors):
+		user = User.query.filter_by(Email = form.Email.data).first()
 
-	if form.validate_on_submit():
-		usr = User(name=form.name.data, passwd=form.passwd.data, email=form.email.data)
-		db.session.add(usr)
-		db.session.commit()
-		name = form.name.data
-		return redirect('main')
+		if user and user.verify_password(form.Password.data):
+			login_user(user)
+
+			next_page = request.args.get('next')
+
+			if not next_page or url_parse(next_page).netloc != '':
+				next_page = '/'
+			return redirect(next_page)
 	else:
-		print(form.errors)
+			return jsonify({ 'error': 'bad user' })
 
-	return render_template('auth/login.html',form=form, name=name)
+@auth.route('/signup', methods=['POST'])
+def signup():
 
+	json = request.get_json()
+	form = signupForm(
+		Username=json['Username'],
+		Password = json['Password'],
+		Password_confirm = json['Password_confirm'],
+		Email = json['Email']
+		)
+
+	# temprarily skip the csrf_token validation
+	if form.validate_on_submit() or (len(form.errors)==1 and 'csrf_token' in form.errors):
+		user = User(Username=form.Username.data, Email=form.Email.data)
+		user.password_hash(form.Password.data)
+		db.session.add(user)
+		db.session.commit()
+
+		#token = user.generate_confirm_token()
+
+		return jsonify({ 'success': 'signed in' })
+	else:
+		error_msg = ''
+		for e in form.errors:
+			error_msg += form.errors[e][0]+'\n'
+			#print(form.errors[e])
+		return jsonify({'error': error_msg})
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+	logout_user()
+	print('user logout')
+	return jsonify({'success': 'logged out'})
