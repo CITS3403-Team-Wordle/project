@@ -102,3 +102,4 @@ class SqliteTests(unittest.TestCase):
         self.cursor.execute("""SELECT * FROM alembic_version""")
         rows = self.cursor.fetchall()
         self.assertEqual(0, len(rows))
+        
