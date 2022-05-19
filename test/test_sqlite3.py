@@ -1,4 +1,8 @@
 import unittest
+
+from flask import current_app
+from app import create_app, db
+
 import sqlite3
 import os
 
@@ -8,6 +12,12 @@ db_name = "test.db"
 
 class SqliteTests(unittest.TestCase):
     def setUp(self):
+        self.app = create_app('test')
+        self.app_context = self.app.app_context()
+        self.app_context.push()
+        db.create_all()
+
+        '''
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
 
@@ -26,11 +36,20 @@ class SqliteTests(unittest.TestCase):
                   CONSTRAINT "alembic_version_pkc" PRIMARY KEY ("version_num")
                 );""")
         self.conn.commit()
+        '''
 
     def tearDown(self) -> None:
-        self.cursor.close()
-        self.conn.close()
-        os.remove(db_name)
+        #self.cursor.close()
+        #self.conn.close()
+        #os.remove(db_name)
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
+
+    def test_one_plus_one(self):
+        self.assertEqual(1,1)
+
+    '''
 
     def test_insert(self):
         self.create_table()
@@ -102,4 +121,5 @@ class SqliteTests(unittest.TestCase):
         self.cursor.execute("""SELECT * FROM alembic_version""")
         rows = self.cursor.fetchall()
         self.assertEqual(0, len(rows))
+        '''
         
