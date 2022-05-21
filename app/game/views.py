@@ -5,9 +5,12 @@ from app import db
 # review the stat result
 @game.route('/stat')
 def stat():
-	pass
+	print('show stat')
+	return None
 
 # start the game, load text
 @game.route('/start')
 def start():
-	pass
+	print('game start')
+	return None
+	

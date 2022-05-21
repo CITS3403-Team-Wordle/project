@@ -3,11 +3,13 @@ import unittest
 from flask import current_app
 from app import create_app, db
 
+from app/models import User
+
 import sqlite3
 import os
 
 # database name
-db_name = "test.db"
+#db_name = "test.db"
 
 
 class SqliteTests(unittest.TestCase):
@@ -17,9 +19,19 @@ class SqliteTests(unittest.TestCase):
         self.app_context.push()
         db.create_all()
 
-        '''
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+        self.app_context.pop()
+
+
+    def test_One_Plus_One(self):
+        return self.assertEqual(1,1)
+
+'''
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
+
 
     def create_table(self):
         self.cursor.execute("""DROP TABLE IF EXISTS "User";""")
@@ -36,20 +48,10 @@ class SqliteTests(unittest.TestCase):
                   CONSTRAINT "alembic_version_pkc" PRIMARY KEY ("version_num")
                 );""")
         self.conn.commit()
-        '''
+        
+'''
 
-    def tearDown(self) -> None:
-        #self.cursor.close()
-        #self.conn.close()
-        #os.remove(db_name)
-        db.session.remove()
-        db.drop_all()
-        self.app_context.pop()
-
-    def test_one_plus_one(self):
-        self.assertEqual(1,1)
-
-    '''
+'''
 
     def test_insert(self):
         self.create_table()

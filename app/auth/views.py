@@ -6,7 +6,7 @@ from werkzeug.urls import url_parse
 
 #import os
 
-from app.auth.forms import signupForm, loginForm
+from app.auth.forms import signupForm, loginForm, forgetpasswordForm_withName, forgetpasswordForm_withEmail
 from app.auth import auth
 from app import db
 from app.models import User
@@ -70,3 +70,20 @@ def logout():
 	logout_user()
 	print('user logout')
 	return jsonify({'success': 'logged out'})
+
+
+@auth.route('/forgetpassword', methods=['POST'])
+def forgetpassword():
+	print('hello')
+	json = request.get_json()
+	print(json)
+	return jsonify({'error': 'just connected!',})
+
+
+'''
+This route only for testing herf link
+'''
+@auth.route('/forgetpassword', methods=['GET'])
+def show_forgetpassword():
+	return render_template('auth/forgetpassword.html')
+

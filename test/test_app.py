@@ -3,7 +3,9 @@ import unittest
 from flask import current_app
 from app import create_app, db
 
+
 class AppTest(unittest.TestCase):
+
 	def setUp(self):
 		self.app = create_app('test')
 		self.app_context = self.app.app_context()
@@ -14,6 +16,7 @@ class AppTest(unittest.TestCase):
 		db.session.remove()
 		db.drop_all()
 		self.app_context.pop()
+
 
 	def test_app_exists(self):
 		self.assertTrue(current_app)
