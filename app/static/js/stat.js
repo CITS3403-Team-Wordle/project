@@ -12,7 +12,13 @@ $(document).ready(function(){
             contentType: 'application/json; charset=utf-8',
         })
         .done(function(data) {
-
+        	if(data.error){
+        		$('#statError').text(data.error).show();
+        	}else{
+        		$('#span-average-mistake').text(data.average_mistake).show();
+        		$('#span-average-wpm').text(data.average_wpm).show();
+        		$('#span-average-cpm').text(data.average_cpm).show();
+        	}
         });
         event.preventDefault();
 	})

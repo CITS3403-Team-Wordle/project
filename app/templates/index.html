@@ -44,7 +44,7 @@
           </li>
 
           <li class="nav-item">
-            Hi, {{ current_user.username }}!
+            Hi, {{ current_user.Username }}!
           </li>
 
           <li class = 'nav-item'>
@@ -175,9 +175,15 @@
             <h5 class="modal-title customModalLabel">STATISTICS</h5>
           </div>
           <div class="modal-body">
-            <p class="modal-form-text-purple">Average Mistakes: <span class="modal-form-text">0</span></p>
-            <p class="modal-form-text-purple">Average CPM: <span class="modal-form-text">0</span></p>
-            <p class="modal-form-text-purple">Average WPM: <span class="modal-form-text">0</span></p>
+            <p class="modal-form-text-purple">Average Mistakes: <span class="modal-form-text" id="span-average-mistake">0</span></p>
+            <p class="modal-form-text-purple">Average CPM: <span class="modal-form-text" id="span-average-cpm">0</span></p>
+            <p class="modal-form-text-purple">Average WPM: <span class="modal-form-text" id="span-average-wpm">0</span></p>
+          </div>
+          <div
+              id="statError"
+              class="alert alert-danger"
+              role="alert"
+              style="display: none">
           </div>
         </div>
       </div>

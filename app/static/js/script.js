@@ -103,7 +103,7 @@ function saveResults(wpmResult, cpmResult) {
     $.ajax({
         type: "POST",
         headers: {"Content-Type": "application/json"},
-        url: "/saveResults",
+        url: "/stat",
         data: JSON.stringify({wpm: wpmResult, cpm: cpmResult}),
         success: function(response) {
             console.log(response);

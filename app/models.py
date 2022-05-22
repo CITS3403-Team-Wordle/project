@@ -91,6 +91,7 @@ class Text(db.Model):
 class Stat(db.Model):
 	__tablename__ = 'Stat'
 	id = db.Column(db.Integer, primary_key=True)
+	MIS = db.Column(db.Integer)
 	CPM = db.Column(db.Integer)
 	WPM = db.Column(db.Integer)
 	date = db.Column(db.String)
