@@ -50,4 +50,11 @@ class Text(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	text = db.Column(db.String)
 
+class Stat(db.Model):
+	__tablename__ = 'Stat'
+	id = db.Column(db.Integer, primary_key=True)
+	CPM = db.Column(db.Integer)
+	WPM = db.Column(db.Integer)
+	data = db.Column(db.String)
+
 	

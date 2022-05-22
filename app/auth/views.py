@@ -77,7 +77,7 @@ def forgetpassword():
 	print('hello')
 	json = request.get_json()
 	print(json)
-	return jsonify({'error': 'just connected!',})
+	return jsonify({'error': 'just connected!'})
 
 
 '''

@@ -35,8 +35,6 @@ $(document).ready(function() {
     // ajax signin
     $('#signup-form').on('submit', function(event) {
 
-        var csrf_token = $('input[name="csrf_token"]').attr('value')
-
         signupForm = {
             Username: $('#signup-username').val(),
             Email: $('#signup-email').val(),
