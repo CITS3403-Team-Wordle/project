@@ -245,6 +245,26 @@ input {
     margin-top: 0;
 }
 
+.logged-in-user-name {
+    text-align: center;
+    min-height: auto;
+    align-self: center;
+}
+
+.logout-custom-button {
+    background-color: white;
+    border-style: none;
+    border-radius: 0.4em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    margin-left: 1em;
+    color: black;
+    font-family: 'Radio Canada', sans-serif;
+    text-align: center;
+}
+
 /* When size of screen is less than 768px (medium in Bootstrap 5) then 
 the icons will centre in the hamburger menu and adjust margins to look in-line*/
 

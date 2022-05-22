@@ -32,7 +32,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navmenu">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <!-- Navbar links -->
           <li class="nav-item">
             <a data-bs-toggle="modal" data-bs-target="#howtoplay-modal" class="nav-link">How To Play</a>
@@ -43,12 +43,12 @@
             <a data-bs-toggle="modal" data-bs-target="#stats-modal" class="nav-link"  id="stat-header">Stats</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item logged-in-user-name">
             Hi, {{ current_user.Username }}!
           </li>
 
-          <li class = 'nav-item'>
-            <button id='logout-btn' type="button" >Log out</button>
+          <li class = "nav-item m-auto">
+            <button class="logout-custom-button" id='logout-btn' type="button" >Log out</button>
           </li>
 
           {% else %}
@@ -78,7 +78,6 @@
             </button>
           </li>
               {% endif %}
-
         </ul>
       </div>
     </nav>
