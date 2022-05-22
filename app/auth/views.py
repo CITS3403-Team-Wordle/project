@@ -53,6 +53,10 @@ def signup():
 		db.session.commit()
 
 		#token = user.generate_confirm_token()
+		login_user(user)
+		next_page = request.args.get('next')
+		if not next_page or url_parse(next_page).netloc != '':
+			next_page = '/'
 
 		return jsonify({ 'success': 'signed in' })
 	else:

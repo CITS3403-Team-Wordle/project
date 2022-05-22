@@ -51,13 +51,10 @@ class User(UserMixin, db.Model):
 	def verify_password(self, password):
 		return check_password_hash(self.Password_hash, password)
 
-	def generate_token(self, expiration=3600):
+	def generate_token(self):
 		token = datetime.utcnow()
-		token_expiration = datetime.utcnow() + timedelta(seconds=expires_in)
-
-		db.session.add(Token(token_expiration=token_expiration, User=self))
-		db.session.commmit()
-
+		
+		return token
 
 	def revoke_token(self):
 		pass

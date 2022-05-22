@@ -2,6 +2,12 @@
 
 $(document).ready(function() {
 
+    function myReload(time=1000){
+        setTimeout(function(){
+            location.reload()
+        }, time)
+    }
+
     // ajax login
     $('#login-form').on('submit', function (event) {
         loginForm = {
@@ -26,6 +32,8 @@ $(document).ready(function() {
             } else {
                 $('#loginSuccess').text(data.success).show();
                 $('#loginError').hide();
+                myReload()
+
             }
         });
         event.preventDefault();
@@ -60,6 +68,7 @@ $(document).ready(function() {
             } else {
                 $('#signSuccess').text(data.success).show();
                 $('#signError').hide();
+                myReload()
             }
         });
         event.preventDefault();
@@ -74,6 +83,7 @@ $(document).ready(function() {
         })
         .done(function(data){
             console.log(data)
+            myReload()
         })
     })
 

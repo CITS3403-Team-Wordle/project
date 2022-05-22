@@ -22,7 +22,7 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md fixed-top navbar-dark">
-      <a href="#" class="navbar-brand">Typing Champion</a>
+      <a href="." class="navbar-brand">Typing Champion</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -37,14 +37,14 @@
           <li class="nav-item">
             <a data-bs-toggle="modal" data-bs-target="#howtoplay-modal" class="nav-link">How To Play</a>
           </li>
+
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a data-bs-toggle="modal" data-bs-target="#stats-modal" class="nav-link">Stats</a>
           </li>
 
-          {% if current_user.is_authenticated %}
-
           <li class="nav-item">
-            <h1> Hi, {{ current_user.username }}!</h1>
+            Hi, {{ current_user.username }}!
           </li>
 
           <li class = 'nav-item'>
