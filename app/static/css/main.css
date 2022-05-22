@@ -160,12 +160,15 @@ h5 {
     margin-left: 0.5em;
 }
 
-#login-button {
+.login-signup-button {
     background-color: rgb(111, 65, 226);
     border-style: none;
-    border-radius: 1em;
+    border-radius: 0.4em;
     padding-left: 1.5em;
     padding-right: 1.5em;
+    color: white;
+    font-family: 'Radio Canada', sans-serif;
+    text-align: center;
 }
 
 .customModalLabel {
@@ -206,6 +209,10 @@ h5 {
 
 .modal-form-text {
     color: grey;
+}
+
+.modal-form-text-purple {
+    color: rgb(111, 65, 226);
 }
 
 p.login-remember-forgot-span {
