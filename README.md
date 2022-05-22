@@ -1,20 +1,20 @@
-# CITS3403 project\
-\
+# CITS3403 project
+
 TYPING CHAMPION practice your speed-tying everyday!
 
 The goal of Typing Champion is to provide a oppertunity to pracitce typing skill with daliy puzzles everyday! 
 
 Typing Champion conatains various categlories of articles, which is extremely helpful to improve reading, typing and spellings. It always provides 60 seconds but with totally different experiences. Will you exceed yourself? Prove it just within 1 minute.
 
-## Starting!\
+## Starting!
 
-### Requriement\
+### Requriement
 - Unix or Mac OS.
 - Python 3.8 or newer
 - Heroku server
     - (For Mac) brew tap heroku/brew && brew install heroku
 
-### Installing\
+### Installing
 Install Python 3.8 or newer
 Install Python dependencies
     - python3 -m pip install -r requirements.txt
