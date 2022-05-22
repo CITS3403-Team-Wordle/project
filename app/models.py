@@ -51,32 +51,6 @@ class User(UserMixin, db.Model):
 	def verify_password(self, password):
 		return check_password_hash(self.Password_hash, password)
 
-	def generate_token(self):
-		token = datetime.utcnow()
-		
-		return token
-
-	def revoke_token(self):
-		pass
-
-
-	def verify_token(self, token):
-
-		return False
-		
-
-
-#==========	Table Token ==========
-class Token(db.Model):
-	__tablename__ = 'Token'
-	id =  db.Column(db.Integer, primary_key=True)
-	token_expiration = db.Column(db.DateTime)
-
-	user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
-
-	def __ref__(self):
-		return 'user_id: {}\ttoken: {}'.format(self.user_id, self.token)
-
 
 #========== Table Text ==========
 class Text(db.Model):
@@ -94,7 +68,7 @@ class Stat(db.Model):
 	MIS = db.Column(db.Integer)
 	CPM = db.Column(db.Integer)
 	WPM = db.Column(db.Integer)
-	date = db.Column(db.String)
+	date = db.Column(db.DateTime)
 	user = db.Column(db.String, db.ForeignKey('User.Username'))
 
 	def __ref__(self):

@@ -2,8 +2,8 @@
 // source = https://thepracticetest.com/typing/tests/practice-paragraphs/
 // ########### SETTING CONSTANTS ###########
 
-
-// source = https://thepracticetest.com/typing/tests/practice-paragraphs/
+$(document).ready(function(){
+    // source = https://thepracticetest.com/typing/tests/practice-paragraphs/
 const paragraphs = [
     "An ever-growing number of complex and rigid rules plus hard-to-cope-with regulations are now being legislated from state to state. Key federal regulations were formulated by the FDA, FTC, and the CPSC. Each of these federal agencies serves a specific mission. One example: Laws sponsored by the Office of the Fair Debt Collection Practices prevent an agency from purposefully harassing clients in serious debt. The Fair Packaging and Labeling Act makes certain that protection from misleading packaging of goods is guaranteed to each buyer of goods carried in small shops as well as in large supermarkets. Products on the market must reveal the names of all ingredients on the label. Language must be in clear and precise terms that can be understood by everyone. This practice is very crucial for the lives of many people. It is prudent that we recall that the FDA specifically requires that all goods are pure, safe, and wholesome. The FDA states that all goods be produced under highly sanitary conditions. Drugs must be completely safe and must also be effective for their stated purpose. This policy applies to cosmetics that must be both safe and pure. Individuals are often totally unappreciative of the FDA's great dedication.",
     "Editing is a growing field of work in the service industry. Paid editing services may be provided by specialized editing firms or by self-employed (freelance) editors. Editing firms may employ a team of in-house editors, rely on a network of individual contractors or both. Such firms are able to handle editing in a wide range of topics and genres, depending on the skills of individual editors. The services provided by these editors may be varied and can include proofreading, copy editing, online editing, developmental editing, editing for search engine optimization (SEO), etc. Self-employed editors work directly for clients or offer their services through editing firms, or both. They may specialize in a type of editing and in a particular subject area. Those who work directly for authors and develop professional relationships with them are called authors' editors.",
@@ -21,7 +21,8 @@ cpmTag = document.querySelector(".cpm span");
 wpmTag = document.querySelector(".wpm span");
 tryAgainButtonTag = document.querySelector(".try-again-button")
 
-let timer, maxTime = 60;    // set timer limit (in seconds)
+//let timer, maxTime = 60;    // set timer limit (in seconds)
+let timer, maxTime = 10;
 let timeLeft = maxTime;
 let charIndex = mistakes = 0;
 let isTyping = false;
@@ -30,6 +31,43 @@ let isTyping = false;
 // ########### GAME LOGIC ###########
 
 function generateRandomParagraph() {
+    $.ajax({
+        type: 'GET',
+        url: '/game-text',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+    })
+    .done(function(data){
+        typingText.innerHTML = "";
+        if(data.error){
+
+            console.log('generating paragraphs in html')
+
+            // generate random number to get a random paragraph above
+            let randIndex = Math.floor(Math.random() * paragraphs.length);
+
+            // split all chars in random paragraph in to spans and add them inside <p>
+            paragraphs[randIndex].split("").forEach(span => {
+                let spanTag = `<span>${span}</span>`;
+                typingText.innerHTML += spanTag;
+
+            });
+        }else{
+            data.paragraph.split("").forEach(span => {
+                let spanTag = `<span>${span}</span>`;
+                typingText.innerHTML += spanTag;
+
+            });
+        }
+        typingText.querySelectorAll("span")[0].classList.add("active");
+        // when a key is pressed or mouse clicked focus on the input field so they
+        // can type and begin the test without clicking the space
+        //document.addEventListener("keydown", () => inputField.focus());
+        typingText.addEventListener("click", () => inputField.focus());
+    })
+
+
+    /*
     // generate random number to get a random paragraph above
     let randIndex = Math.floor(Math.random() * paragraphs.length);
     typingText.innerHTML = "";
@@ -43,6 +81,7 @@ function generateRandomParagraph() {
     // can type and begin the test without clicking the space
     //document.addEventListener("keydown", () => inputField.focus());
     typingText.addEventListener("click", () => inputField.focus());
+    */
 }
 
 function  initiateTyping() {
@@ -83,10 +122,13 @@ function  initiateTyping() {
         cpmTag.innerText = charIndex - mistakes;
     } else {
         // here is where we need to submit results as the timer has ended.
-        saveResults(wpmTag.innerText, cpmTag.innerText)
+        saveResults(mistakeTag.innerText, wpmTag.innerText, cpmTag.innerText)
         console.log("game finished.")
-        inputField = "";    // clear input field ready for new test
+        restartGame()
+        /*
+        inputField.value = "";    // clear input field ready for new test
         clearInterval(timer);
+        */
     }
 }
 
@@ -99,12 +141,12 @@ function initiateTimer() {
     }
 };
 
-function saveResults(wpmResult, cpmResult) {
+function saveResults(mistakeResult, wpmResult, cpmResult) {
     $.ajax({
         type: "POST",
         headers: {"Content-Type": "application/json"},
         url: "/stat",
-        data: JSON.stringify({wpm: wpmResult, cpm: cpmResult}),
+        data: JSON.stringify({mistake: mistakeResult, wpm: wpmResult, cpm: cpmResult}),
         success: function(response) {
             console.log(response);
     },
@@ -135,3 +177,7 @@ generateRandomParagraph();
 inputField.addEventListener("input", initiateTyping);
 inputField.addEventListener("click", initiateTyping);
 tryAgainButtonTag.addEventListener("click", restartGame);
+
+
+})
+

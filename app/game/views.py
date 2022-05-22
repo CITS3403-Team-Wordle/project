@@ -1,17 +1,20 @@
+import random
 from flask import request, jsonify
 from flask_login import login_required, current_user
+from datetime import datetime, timedelta, date
+from sqlalchemy import func
 
 from app.game import game
 from app import db
-from app.models import User, Stat
+from app.models import User, Stat, Text
 
 
-# review the stat result
+# store or review the stat result
 @game.route('/stat', methods=['POST','GET'])
 @login_required
 def stat():
+	# GET stat, showing results
 	if request.method == 'GET':
-		print(current_user.Username)
 		list_stat = Stat.query.filter_by(user = current_user.Username).all()
 		# if history stat exists
 		if list_stat:
@@ -25,18 +28,37 @@ def stat():
 
 			return jsonify({
 				'success':'',
-				'average_mistake': total_mistake/len(list_stat),
-				'average_cpm': total_cpm/len(list_stat),
-				'average_wpm': total_wpm/len(list_stat),
+				'average_mistake': round(total_mistake/len(list_stat),2),
+				'average_cpm': round(total_cpm/len(list_stat),2),
+				'average_wpm': round(total_wpm/len(list_stat),2),
 				})
 		# if history not exsiting
 		else:
-			print('no record')
 			return jsonify({'error': 'No record, Please try for first time!'})
+	elif request.method == 'POST':
+		json = request.get_json()
+		stat = Stat(MIS=json['mistake'], WPM=json['wpm'], CPM=json['cpm'], date=datetime.now(), User=User.query.filter_by(Username=current_user.Username).first())
+		db.session.add(stat)
+		db.session.commit()
+		return jsonify({'success': 'Uploaded grade!'})
 
-# start the game, load text
-@game.route('/start')
-def start():
-	print('game start')
-	return None
+# get text for typing game
+@game.route('/game-text', methods=['GET'])
+@login_required
+def game_text():
+	p_count = Text.query.count()
+	if p_count:
+		text = Text.query.filter_by(id=(int(p_count*random.random()+1))).first().text
+		return jsonify({
+			'success': '',
+			'paragraph': text,
+			})
+	else:
+		return jsonify({'error': 'empty Text'})
+
+
+
+
+
+
 	
