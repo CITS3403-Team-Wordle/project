@@ -71,7 +71,7 @@ if compiling error occurs such as **Flask-Script: from flask.\_compat import tex
 
 find the file location (usually showing a few lines above the Error message)
 
-find: **flask_script/__init__.py**
+find: **flask_script/\_\_init\_\_.py**
 
 Manually change:
 
