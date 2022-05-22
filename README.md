@@ -38,7 +38,7 @@ Install sqlite3
 - for **Deployment** app:
 
     set flask configuration
-    - `export FLASK_CONFIG='deploy`
+    - `export FLASK_CONFIG='deploy'`
 
     run server
     - `python3 manage.py deploy`
