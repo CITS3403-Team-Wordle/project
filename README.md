@@ -1,38 +1,64 @@
-# project
-This is the file of the application
+# CITS3403 project\
+\
+TYPING CHAMPION practice your speed-tying everyday!
 
-# Intro for CITS3403 Teams!
+The goal of Typing Champion is to provide a oppertunity to pracitce typing skill with daliy puzzles everyday! 
 
-##manually test database connection
+Typing Champion conatains various categlories of articles, which is extremely helpful to improve reading, typing and spellings. It always provides 60 seconds but with totally different experiences. Will you exceed yourself? Prove it just within 1 minute.
 
-1. change dir to app/
+## Starting!\
 
-2. do command:  source venv/bin/activate
+### Requriement\
+- Unix or Mac OS.
+- Python 3.8 or newer
+- Heroku server
+    - (For Mac) brew tap heroku/brew && brew install heroku
 
-3. do command:  python3 manage.py db init       # initiate the database
+### Installing\
+Install Python 3.8 or newer
+Install Python dependencies
+    - python3 -m pip install -r requirements.txt
+Install sqlite3
 
-4. if wish to test the connect with database, do command:
+### Running
 
-    python3 manage.py shell     # run app in shell
-    
-    from __init__ import db     # import connection db
-    
-    from models import User     # test table User, structure is introduced in models.py
-    
-    u1 = User(name='name', passwd='passwd', email='email', uid=1)   #create User object
-    
-    db.session.add(u1)
-    
-    db.session.commit()         # commit the change of adding u1
-    
-5. then we can check the database see if the u1 is added, quit python3 shell and do:
-    
-    sqlite dev_data.sqlite      # open dev_data.sqlite
-    
-    .mode box
-    
-    .width 20                   #optionally set the form of output
-    
-    select * from User;         # output all from table User
+- change directory to *project* (or *project-main*)
 
+- initiate virtual enrivronment:
+    - `source venv/bin/activate`
 
+- for **Development** app:
+
+    set flask configuration
+    - `export FLASK_CONFIG='development'`
+
+    run server
+    - `python3 manage.py runserver`
+
+- for **Deployment** app:
+
+    set flask configuration
+    - `export FLASK_CONFIG='deploy`
+
+    run server
+    - `python3 manage.py deploy`
+
+### Testing App
+
+Run unittest:
+```
+python3 manage.py test
+```
+
+### More commands
+
+#### Developing in Python Shell
+
+Run `python3 manage.py shell`
+
+#### Migrate Database
+
+Run `python3 manage.py db init`, also `python3 manage.py migrate`, also `python3 manage.py upgrade` and others
+
+#### Other commands
+Run `python3 manage.py` to see more commands
