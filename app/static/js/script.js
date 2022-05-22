@@ -41,7 +41,7 @@ function generateRandomParagraph() {
     typingText.querySelectorAll("span")[0].classList.add("active");
     // when a key is pressed or mouse clicked focus on the input field so they
     // can type and begin the test without clicking the space
-    document.addEventListener("keydown", () => inputField.focus());
+    //document.addEventListener("keydown", () => inputField.focus());
     typingText.addEventListener("click", () => inputField.focus());
 }
 
@@ -115,4 +115,5 @@ function restartGame() {
 
 generateRandomParagraph();
 inputField.addEventListener("input", initiateTyping);
+inputField.addEventListener("click", initiateTyping);
 tryAgainButtonTag.addEventListener("click", restartGame);
