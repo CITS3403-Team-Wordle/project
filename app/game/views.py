@@ -3,7 +3,7 @@ from app import db
 
 
 # review the stat result
-@game.route('/stat')
+@game.route('/stat', methods=['POST'])
 def stat():
 	print('show stat')
 	return None

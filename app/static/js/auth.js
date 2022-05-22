@@ -50,9 +50,6 @@ $(document).ready(function() {
             url: '/signup',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
-            headers: {
-                        'X-CSRFToken': csrf_token 
-                   },
             data: JSON.stringify(signupForm),
 
         })

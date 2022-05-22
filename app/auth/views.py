@@ -26,7 +26,7 @@ def login():
 		#print(user)
 
 		if user and user.verify_password(form.Password.data):
-			login_user(user)
+			login_user(user, remember=form.Remember_me.data)
 			next_page = request.args.get('next')
 			if not next_page or url_parse(next_page).netloc != '':
 				next_page = '/'
@@ -37,7 +37,6 @@ def login():
 
 @auth.route('/signup', methods=['POST'])
 def signup():
-
 	json = request.get_json()
 	form = signupForm(
 		Username=json['Username'],
@@ -74,9 +73,16 @@ def logout():
 
 @auth.route('/forgetpassword', methods=['POST'])
 def forgetpassword():
-	print('hello')
 	json = request.get_json()
+
 	print(json)
+
+	# test whether Username or Email is choosen
+	if '@' in json['identity']:
+		print('Have Email')
+	else:
+		print('Have Username')
+
 	return jsonify({'error': 'just connected!'})
 
 
