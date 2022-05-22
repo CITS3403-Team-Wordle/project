@@ -35,7 +35,7 @@
         <ul class="navbar-nav">
           <!-- Navbar links -->
           <li class="nav-item">
-            <a href="#" class="nav-link">How To Play</a>
+            <a data-bs-toggle="modal" data-bs-target="#howtoplay-modal" class="nav-link">How To Play</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Stats</a>
@@ -142,24 +142,30 @@
                 style="display: none"
               ></div>
           </div>
-
-          <div class="modal-footer justify-content-center">
-            <button
-              type="button"
-              id="login-button"
-              class="btn btn-primary mr-auto"
-            >
-              Login
-            </button>
-          </div>
-          <h5 class="standard-font text-center">
-            Don't have an account?
-            <a href="#" class="purple-link">Register now</a>
-          </h5>
-          <br />
         </div>
       </div>
     </div>
+
+
+    <!-- How to Play Modal -->
+    <div id="howtoplay-modal" class="modal fade" role="dialog" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title customModalLabel">HOW TO PLAY</h5>
+          </div>
+          <div class="modal-body">
+            <p class="modal-form-text">
+              Want to know how to improve your typing speed? The first step to learn to type fast and increase your typing speed is to take a timed typing test! <br><br>
+              Take our 60 second typing test every day and watch your speeds get even faster! <br> <br>
+              Want to monitor your progress? Simply sign up with an account and check the Stats tab to keep watching your progression!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <!-- Sign Up Modal -->
     <div class="modal fade" id="sign-up-modal" tabindex="-1">
@@ -217,16 +223,6 @@
               role="alert"
               style="display: none"
             ></div>
-          </div>
-
-          <div class="modal-footer justify-content-center">
-            <button
-              type="submit"
-              id="login-button"
-              class="btn btn-primary mr-auto"
-            >
-              Sign Up
-            </button>
           </div>
         </div>
       </div>
