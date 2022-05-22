@@ -41,7 +41,7 @@ function generateRandomParagraph() {
     typingText.querySelectorAll("span")[0].classList.add("active");
     // when a key is pressed or mouse clicked focus on the input field so they
     // can type and begin the test without clicking the space
-    document.addEventListener("keydown", () => inputField.focus());
+    //document.addEventListener("keydown", () => inputField.focus());
     typingText.addEventListener("click", () => inputField.focus());
 }
 
@@ -83,6 +83,7 @@ function  initiateTyping() {
         cpmTag.innerText = charIndex - mistakes;
     } else {
         // here is where we need to submit results as the timer has ended.
+        saveResults(wpmTag.innerText, cpmTag.innerText)
         console.log("game finished.")
         inputField = "";    // clear input field ready for new test
         clearInterval(timer);
@@ -97,6 +98,23 @@ function initiateTimer() {
         clearInterval(timer);
     }
 };
+
+function saveResults(wpmResult, cpmResult) {
+    $.ajax({
+        type: "POST",
+        headers: {"Content-Type": "application/json"},
+        url: "/saveResults",
+        data: JSON.stringify({wpm: wpmResult, cpm: cpmResult}),
+        success: function(response) {
+            console.log(response);
+    },
+    error: function(response, error) {
+        console.log(response);
+        console.log(error);
+    }
+});
+}
+
 
 // reset vars and elements
 // gen new text paragraph
@@ -115,4 +133,5 @@ function restartGame() {
 
 generateRandomParagraph();
 inputField.addEventListener("input", initiateTyping);
+inputField.addEventListener("click", initiateTyping);
 tryAgainButtonTag.addEventListener("click", restartGame);

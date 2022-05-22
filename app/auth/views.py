@@ -80,8 +80,24 @@ def forgetpassword():
 	# test whether Username or Email is choosen
 	if '@' in json['identity']:
 		print('Have Email')
+		form = forgetpasswordForm_withEmail(
+				Email = json['identity'],
+				Password = json['new_password'],
+				Password_confirm = json['confirm_new_password'],
+			)
 	else:
 		print('Have Username')
+		form = forgetpasswordForm_withName(
+				Username = json['identity'],
+				Password = json['new_password'],
+				Password_confirm = json['confirm_new_password'],
+			)
+	
+	if form.validate_on_submit() or (len(form.errors)==1 and 'csrf_token' in form.errors):
+		if form.Username:
+			User.query.filter(User.Username == form.Username).update({ 'Password_hash': generate_password_hash(form.Password) }, synchronize_session="fetch")
+
+
 
 	return jsonify({'error': 'just connected!'})
 
