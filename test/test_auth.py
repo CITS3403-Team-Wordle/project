@@ -103,4 +103,3 @@ class TestAPP(unittest.TestCase):
             db.drop_all()
 
 
-
