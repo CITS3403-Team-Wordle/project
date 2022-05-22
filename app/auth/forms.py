@@ -14,7 +14,7 @@ class loginForm(FlaskForm):
 
 class signupForm(FlaskForm):
     # Username 'Username must have only letters, numbers ot underscores, with length min 6 and max 30'
-    Username = StringField('Username', [DataRequired(message = 'Username is required.'), Length(min=6,max=30), Regexp('^[a-zA-Z][a-zA-Z0-9_]*$',0, 'Username must have only letters, numbers ot underscores.')])
+    Username = StringField('Username', [DataRequired(message = 'Username is required.'), Length(min=6,max=30), Regexp('^[a-zA-Z][a-zA-Z0-9_]*$',0, 'Username must have only letters, numbers or underscores.')])
 
     # Password 'Password must have length min 6 and max 30, no other specifical rules'
     Password = StringField('Password', [DataRequired(message = 'Password is required.'), Length(min=8, max=30), EqualTo('Password_confirm', message='Passwords must match.')])
