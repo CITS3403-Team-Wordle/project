@@ -38,7 +38,7 @@
             <a data-bs-toggle="modal" data-bs-target="#howtoplay-modal" class="nav-link">How To Play</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Stats</a>
+            <a data-bs-toggle="modal" data-bs-target="#stats-modal" class="nav-link">Stats</a>
           </li>
 
           {% if current_user.is_authenticated %}
@@ -127,7 +127,7 @@
                     <a href="/forgetpassword" class="forgot-password">Forgot password?</a></span>
                 </p>
               </h5>
-              <button type="submit">submit</button>
+              <button class="login-signup-button" type="submit">Login</button>
             </form>
               <div
                 id="loginSuccess"
@@ -151,7 +151,7 @@
     <div id="howtoplay-modal" class="modal fade" role="dialog" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header justify-content-center">
             <h5 class="modal-title customModalLabel">HOW TO PLAY</h5>
           </div>
           <div class="modal-body">
@@ -165,6 +165,22 @@
       </div>
     </div>
 
+
+    <!-- Stats Modal -->
+    <div id="stats-modal" class="modal fade" role="dialog" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <h5 class="modal-title customModalLabel">STATISTICS</h5>
+          </div>
+          <div class="modal-body">
+            <p class="modal-form-text-purple">Average Mistakes: <span class="modal-form-text">0</span></p>
+            <p class="modal-form-text-purple">Average CPM: <span class="modal-form-text">0</span></p>
+            <p class="modal-form-text-purple">Average WPM: <span class="modal-form-text">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Sign Up Modal -->
@@ -208,7 +224,7 @@
                 <label for="signup-password" class="modal-form-text">Password Confirm</label>
                 <input type="password" class='form-control' id="signup-password-confirm" placeholder="********">
               </div>
-              <button type="submit">submit</button>
+              <button class="login-signup-button" type="submit">Sign Up</button>
             </form>
 
             <div
