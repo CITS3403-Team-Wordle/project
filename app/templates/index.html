@@ -40,7 +40,7 @@
 
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a data-bs-toggle="modal" data-bs-target="#stats-modal" class="nav-link">Stats</a>
+            <a data-bs-toggle="modal" data-bs-target="#stats-modal" class="nav-link"  id="stat-header">Stats</a>
           </li>
 
           <li class="nav-item">
@@ -77,11 +77,12 @@
               Sign Up
             </button>
           </li>
+              {% endif %}
+
         </ul>
       </div>
     </nav>
 
-    {% endif %}
 
     <!-- Login Modal -->
     <div class="modal fade" id="login-modal" tabindex="-1">
@@ -297,6 +298,7 @@
 
     <script type="text/javascript" src='./static/js/script.js'></script>
     <script type="text/javascript" src='./static/js/auth.js'></script>
+    <script type="text/javascript" src='./static/js/stat.js'></script>
 
 
   </body>
