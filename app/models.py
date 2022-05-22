@@ -25,6 +25,16 @@ class Role(db.Model):
 	def __ref__(self):
 		return 'Role {}'.format(self.role)
 
+	@staticmethod
+	def insert_roles():
+		roles = ['admin', 'user']
+		for r in roles:
+			temp_role = Role.query.filter_by(role=r).first()
+			if not temp_role:
+				temp_role = Role(role=r)
+			db.session.add(temp_role)
+		db.session.commit()
+
 
 #==========	Table User ==========
 class User(UserMixin, db.Model):
@@ -41,6 +51,15 @@ class User(UserMixin, db.Model):
 
 	def __ref__(self):
 		return 'User: {}\temail: {}'.format(self.Username, self.Email)
+
+	@staticmethod
+	def insert_users():
+		# insert default Administrator
+		admin = User(Username='Administrator', Email='admin@email.com', Role=Role.query.filter_by(role='admin').first())
+		# default password for Admin 'cits3403'
+		admin.password_hash('cits3403')
+		db.session.add(admin)
+		db.session.commit()
 
 	# generate password hash
 	def password_hash(self, password):
@@ -59,6 +78,15 @@ class Text(db.Model):
 
 	def __ref__(self):
 		return 'Text: {}'.format(self.text)
+
+	@staticmethod
+	def insert_text():
+		f = open('app/game_text_example.txt', 'r')
+		for p in f.readlines():
+			db.session.add(Text(text=p))
+		db.session.commit()
+		f.close()
+
 
 #========== Table Stat ==========
 class Stat(db.Model):
