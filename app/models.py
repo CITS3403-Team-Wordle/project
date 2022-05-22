@@ -38,7 +38,6 @@ class User(UserMixin, db.Model):
 	role_id = db.Column(db.Integer, db.ForeignKey('Role.id'))
 
 	stat = db.relationship('Stat', backref='User', lazy=True)
-	token = db.relationship('Token', backref='User', lazy=True)
 
 	def __ref__(self):
 		return 'User: {}\temail: {}'.format(self.Username, self.Email)

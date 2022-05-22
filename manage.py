@@ -18,6 +18,19 @@ def test():
 	test = unittest.TestLoader().discover('test')
 	unittest.TextTestRunner(verbosity=2).run(test)
 
+@manager.command
+def deploy():
+	""" Run deployment tasks """
+	from flask_migrate import upgrade
+	from app.models import User, Role
+
+	# migrate db to latest version
+	upgrade()
+
+	# add other code later...
+
+
+
 manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 

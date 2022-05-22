@@ -44,7 +44,6 @@ def stat():
 
 # get text for typing game
 @game.route('/game-text', methods=['GET'])
-@login_required
 def game_text():
 	p_count = Text.query.count()
 	if p_count:
