@@ -25,6 +25,7 @@ class ProductionConfig(Config):
     def init_app():
         Config.init_app(app)
 
+'''
 class HerokuConfig(ProductionConfig):
     @classmethod
     def init_app(cls, app):
@@ -36,6 +37,7 @@ class HerokuConfig(ProductionConfig):
         file_handler = StreamHandler()
         file_handler.setLevel(logging.WARNGING)
         app.logger.addHandler(file_handler)
+        '''
 
 config = {
     'development': DevelopmentConfig,

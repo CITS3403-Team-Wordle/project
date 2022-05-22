@@ -22,7 +22,7 @@ def test():
 def deploy():
 	""" Run deployment tasks """
 	from flask_migrate import upgrade
-	from app.models import User, Role
+	from app.models import User, Role, Text
 
 	# migrate db to latest version
 	upgrade()
