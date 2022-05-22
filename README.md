@@ -62,3 +62,23 @@ Run `python3 manage.py db init`, also `python3 manage.py migrate`, also `python3
 
 #### Other commands
 Run `python3 manage.py` to see more commands
+
+### NOTICE
+
+if compiling error occurs such as **Flask-Script: from flask.\_compat import text_type ModuleNotFoundError: No module named 'flask._compat'**
+
+#### Solution:
+
+find the file location (usually showing a few lines above the Error message)
+
+find: **flask_script/__init__.py**
+
+Manually change:
+
+Where
+
+`from .\_compat import text_type` on original flask-script file
+
+to
+
+`from flask_script._compat import text_type`
