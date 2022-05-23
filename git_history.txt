@@ -1,0 +1,491 @@
+* commit c355dee8e79a870f78f70518f30b5697003e9f69 (HEAD -> main, origin/main, origin/HEAD)
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 07:26:58 2022 +0800
+| 
+|     update readme
+| 
+* commit e109fd1621284d9e6bdb885bb9a12c36e85bf47d
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 07:26:15 2022 +0800
+| 
+|     update readme
+| 
+* commit cab7fb99f7032e3c18c412f8a3078775e29490bd
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 07:25:33 2022 +0800
+| 
+|     update readme
+| 
+* commit 1ac0d56c6a9824c5b7d0534dcfd2b418549e2122
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 07:19:45 2022 +0800
+| 
+|     update readme
+| 
+* commit 7ceb334403b9144c206143147d10c4a7403d0a08
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 07:18:40 2022 +0800
+| 
+|     update readme
+| 
+* commit b6a1b161ce61c182122a7e0b9b9a700a47603edb
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 06:24:36 2022 +0800
+| 
+|     add runtime.txt
+| 
+* commit fa94c4b96292d34521eaacbf4116adabb4582aa0
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 06:17:36 2022 +0800
+| 
+|     try deploy
+| 
+* commit 342b40aa9184f92cdd7ad60c9c0a589e8ea402ae
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 06:06:52 2022 +0800
+| 
+|     add heroku config
+| 
+* commit c35f30e9fde50b144bf404ad5c88efab99a7b631
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 02:57:31 2022 +0800
+| 
+|     regular update
+|   
+*   commit afe7b8f772bcf5fe2c6c1fd60602728a4f401704
+|\  Merge: 587f8e5 4d59849
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Mon May 23 01:59:56 2022 +0800
+| | 
+| |     implement loading text from db
+| | 
+| * commit 4d59849a24f8f4291db19b7f1c61f6b9b88cc11b
+| | Author: Chris <chris.holloway@iinet.net.au>
+| | Date:   Mon May 23 00:39:08 2022 +0800
+| | 
+| |     fixed up css for the logout button when logged in
+| | 
+* | commit 587f8e5a7072ad4006f48568b59afd339692a741
+|/  Author: jjjjjin <22409515@student.uwa.edu.au>
+|   Date:   Mon May 23 01:57:44 2022 +0800
+|   
+|       implement loading text from db
+| 
+* commit 8d700c7083a0b577ac35320965907a419e4aded2
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Mon May 23 00:05:23 2022 +0800
+| 
+|     impelement stat
+| 
+* commit 541d4b9464f1c57362fa27947f233b45996edcb4
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 22 22:44:44 2022 +0800
+| 
+|     refine index.html
+| 
+* commit f55362877a678833653066c3a51ddb1fd002ced9
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 22 22:15:44 2022 +0800
+| 
+|     add function to reload page
+|   
+*   commit fbe8ef69def9b66e3760e7912ea7def3ce4af3bc
+|\  Merge: 10224d6 fcfeb4a
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Sun May 22 21:51:27 2022 +0800
+| | 
+| |     Merge branch 'main' of github.com:CITS3403-Team-Wordle/project
+| | 
+| * commit fcfeb4a97dd2981deb0649ca6e16633aded198ee
+| | Author: Chris <chris.holloway@iinet.net.au>
+| | Date:   Sun May 22 21:43:24 2022 +0800
+| | 
+| |     fixed up stats modal
+| | 
+* | commit 10224d6c23f9389f131ee5c7d351052004afedd2
+|\| Merge: 985dcc6 0b824d5
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Sun May 22 21:51:15 2022 +0800
+| | 
+| |     chagnes in models.py
+| | 
+| * commit 0b824d5fcfa76eaaf279d62f854cad1c53ae2936
+| | Author: Chris <chris.holloway@iinet.net.au>
+| | Date:   Sun May 22 20:33:34 2022 +0800
+| | 
+| |     added How to Play Modal
+| | 
+| * commit 2863b05196fa168dba95b173835230c24226e886
+| | Author: Chris <chris.holloway@iinet.net.au>
+| | Date:   Sun May 22 19:45:10 2022 +0800
+| | 
+| |     added AJAX POST in JS file to push results to SQLite
+| | 
+| * commit ae9a66c8a6d85ca16032c5650a04aa3d3df625aa
+| | Author: Chris <chris.holloway@iinet.net.au>
+| | Date:   Sun May 22 19:26:29 2022 +0800
+| | 
+| |     change to get typing to work and fix login form typing issue
+| | 
+* | commit 985dcc652667c56b3e74c494b5a93a2b3af39a25
+|/  Author: jjjjjin <22409515@student.uwa.edu.au>
+|   Date:   Sun May 22 21:26:44 2022 +0800
+|   
+|       modifying models.py
+| 
+* commit 460b67d1cdb4ccfcd7cc5af0618a1a4b6948410f
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 22 17:20:35 2022 +0800
+| 
+|     updated
+| 
+* commit 7a613fcff3795369606909bc93d2650e8dc30566
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 22 16:32:28 2022 +0800
+| 
+|     update requirement.txt
+| 
+* commit cbbb6af6dce079b9a227f77f63f81fb5a8b265e1
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 22 13:19:30 2022 +0800
+| 
+|     add some code in forgetpassword
+| 
+* commit a8f9830197bafafc8e6b1d56ffce934334d04764
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Sun May 22 11:11:00 2022 +0800
+| 
+|     Update and rename test_auth to test_auth.py
+| 
+* commit 4c355d86fd66d3b7f068fc2450fe642056f1db34
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Sun May 22 11:06:49 2022 +0800
+| 
+|     Update forms.py
+| 
+* commit b81f02ab109cbe0fa19d84b8288f84615ce659c2
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Sun May 22 10:57:52 2022 +0800
+| 
+|     Create test_auth
+| 
+* commit 8172f81606c17d5e28328d7970f651cfc2763a12
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sat May 21 21:55:30 2022 +0800
+| 
+|     add forgetpassword page
+| 
+* commit d58b364cd109e7285197d147e10f31bb89d91ad2
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 19 23:43:29 2022 +0800
+| 
+|     update requirement
+| 
+* commit f21e35c5917428d3b907053c157af6e36a9cfcfd
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 19 23:40:29 2022 +0800
+| 
+|     add some test code
+| 
+* commit 29e0ec4fd088ecb7739f29e726bd4f62d75c20bc
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 19 23:39:50 2022 +0800
+| 
+|     add test config
+| 
+* commit 4b56c699247a94ffe56db3c28c8f723918faae7a
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 19 21:16:56 2022 +0800
+| 
+|     add test command into manager.py
+| 
+* commit a287b952b5c06be5bf5260cac906f9e933535e22
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 19 20:53:55 2022 +0800
+| 
+|     create dir test and "mv app/test_sqlite3.py test/"
+| 
+* commit bc70bd754d8cb6f2f14b4ec2bd57389e78e0264d
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Thu May 19 14:13:57 2022 +0800
+| 
+|     Update test_sqlite3.py
+| 
+* commit 5783ea4fceea74f4c9c5c247e361c7d1c74ad5fc
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Thu May 19 14:09:41 2022 +0800
+| 
+|     Rename test to test_sqlite3.py
+|     
+|     unittest
+| 
+* commit 53e4655c8e07224260467e5c7756e230fa13cb7b
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Thu May 19 14:04:38 2022 +0800
+| 
+|     Update test
+|   
+*   commit 850e5f4e81f59d0e14bf634fb0a459aa214127d0
+|\  Merge: d669ce4 b3621f8
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Tue May 17 19:12:50 2022 +0800
+| | 
+| |     Merge branch 'main' of github.com:CITS3403-Team-Wordle/project
+| |   
+| *   commit b3621f807cfb5d216e6c5dd151b2a6d969bb8a93
+| |\  Merge: e34613b 1cb2d25
+| | | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | | Date:   Tue May 17 17:32:00 2022 +0800
+| | | 
+| | |     Merge branch 'main' of https://github.com/CITS3403-Team-Wordle/project
+| | | 
+| * | commit e34613bcfc35fc5d98a69d6bcc3ab6404dbb6e0f
+| | | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | | Date:   Tue May 17 17:31:38 2022 +0800
+| | | 
+| | |     fixed wpm inner text not resetting to 0 when new game started
+| | | 
+* | | commit d669ce4cb8784fc0bf61e3b78fee004fe760400f
+| |/  Author: jjjjjin <22409515@student.uwa.edu.au>
+|/|   Date:   Tue May 17 19:12:00 2022 +0800
+| |   
+| |       add dir game
+| | 
+* | commit 1cb2d254e730bc26552449813779f48d01a744f3
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Tue May 17 17:04:18 2022 +0800
+| | 
+| |     seperate ajax from game logic
+| | 
+* | commit 41d86b67e3deec666a27bd0383238abfb99454f3
+|\| Merge: c8c4296 20068d0
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Tue May 17 16:29:59 2022 +0800
+| | 
+| |     implement login&logout&signin
+| | 
+| * commit 20068d0d64055ac0047b1f9e0bbf83259768a587
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 19:58:19 2022 +0800
+| | 
+| |     try again button completed, minor fixes to clean up appearence
+| | 
+| * commit 058ca21c197730abcf16de0e15bfbb0bac6b9317
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 19:51:14 2022 +0800
+| | 
+| |     try again button now generates a new paragraph and resets elements and variables
+| | 
+| * commit ecc1d68a41e9353806d9a66a84bdba6c422b94ec
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 18:38:56 2022 +0800
+| | 
+| |     added cpm, wpm and timer functionality
+| | 
+| * commit cc53113b9332756c52c9abe2cf9fbf6c5aa8e8ed
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 18:10:08 2022 +0800
+| | 
+| |     fixed main.html script src
+| |   
+| *   commit d84befc6b9eed491529521252c7837fc1eb16fcc
+| |\  Merge: 13d2542 8abbeef
+| | | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | | Date:   Mon May 16 18:05:27 2022 +0800
+| | | 
+| | |     Merge branch 'main' of https://github.com/CITS3403-Team-Wordle/project
+| | | 
+| * | commit 13d254291e1e2012d545b7b6d1cfbf01e753045a
+| | | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | | Date:   Mon May 16 18:05:05 2022 +0800
+| | | 
+| | |     current character hover and correct/incorrect typing of chars implemented
+| | | 
+* | | commit c8c4296cec1a1730abe097658a93600e479fdf23
+| |/  Author: jjjjjin <22409515@student.uwa.edu.au>
+|/|   Date:   Tue May 17 16:27:20 2022 +0800
+| |   
+| |       implement login/logout/signin
+| | 
+* | commit 8abbeef96be8e8b56f22cdc76e8fdd74f79e0495
+|\| Merge: 5ae1b70 72fd30b
+| | Author: jjjjjin <22409515@student.uwa.edu.au>
+| | Date:   Mon May 16 18:04:04 2022 +0800
+| | 
+| |     test
+| | 
+| * commit 72fd30b4f488c8d6813d6bce7115f126e022a169
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 16:52:18 2022 +0800
+| | 
+| |     cleaned files and merged js files to one
+| | 
+| * commit fceff12cf8909c0c6c563e14374fa5c2c5569e6e
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 16:31:38 2022 +0800
+| | 
+| |     added random paragraphs to paragraphs.js
+| | 
+| * commit 2629f33c4a9c8e90295bc0196942fc60f8cad365
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 02:29:42 2022 +0800
+| | 
+| |     initial styling and html for the text box that will be typed in to
+| | 
+| * commit ed3aac9c1083334e4906b1d37b1befcec72bf714
+| | Author: chrisholloway1 <31472836+chrisholloway1@users.noreply.github.com>
+| | Date:   Mon May 16 01:06:15 2022 +0800
+| | 
+| |     updated title
+| | 
+* | commit 5ae1b701f437e9ffcab37e93284804205774436c
+|/  Author: jjjjjin <22409515@student.uwa.edu.au>
+|   Date:   Mon May 16 17:56:28 2022 +0800
+|   
+|       fix ajax connection
+| 
+* commit 78fa50b179b6ab07395d86589df71275844be6b5
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Sun May 15 13:27:34 2022 +0800
+| 
+|     add ajax
+| 
+* commit 8925c4599dfefce5953aa0a820df72b41f9a4f9c
+| Author: Kaiserwang01 <88830358+Kaiserwang01@users.noreply.github.com>
+| Date:   Fri May 13 14:41:21 2022 +0800
+| 
+|     Create test
+| 
+* commit a8dbea6c771335cd3615942bd80cd4cf92c81af1
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Fri May 6 23:00:18 2022 +0800
+| 
+|     remove useless file and rename some test filename
+| 
+* commit e952d40f70f2a92cb1c39112b9cc02cdc5bb8880
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Fri May 6 22:59:24 2022 +0800
+| 
+|     add index.html to server
+| 
+* commit d25095e29423e96065dd1480bf07b09d4a1239a6
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Fri May 6 22:38:17 2022 +0800
+| 
+|     change dir
+| 
+* commit c8c54ae15ce2b53dca748d2ee6943f2f5b138138
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Fri May 6 22:36:11 2022 +0800
+| 
+|     refine interaction between db and login.html
+| 
+* commit 7a1359828b61a1f8d4d90876898c4e5461f98dde
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 19:43:59 2022 +0800
+| 
+|     update repo
+| 
+* commit a70336da915af1dc9b48210f1b5502d2b3469088
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 19:42:48 2022 +0800
+| 
+|     attach auth blueprint
+| 
+* commit 9c3e3938c08c4a346916ad694aeb7cd152ab343a
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 19:42:13 2022 +0800
+| 
+|     add auth file
+| 
+* commit 6dc9261bd1e0d73025cc519e8a00f00b0d8a1da8
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 17:11:18 2022 +0800
+| 
+|     update repo
+| 
+* commit 46412e903f970394e41a3a7c9276999e066e0801
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 17:06:43 2022 +0800
+| 
+|     change spaces
+| 
+* commit 001a453b65998109ea96a090b64804eb31a85ebc
+| Author: JJJJJJin <88881124+JJJJJJin@users.noreply.github.com>
+| Date:   Thu May 5 17:03:50 2022 +0800
+| 
+|     Delete cits.db
+|     
+|     delete useless db
+| 
+* commit 607a8c14289305e598165e1b0230bc6648b1b026
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 17:02:38 2022 +0800
+| 
+|     discard reading from envron
+| 
+* commit 8ffcde0f5806af8f4d62f97357be40da9465592a
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 17:01:45 2022 +0800
+| 
+|     add instruction for db connection test
+| 
+* commit f105cd68298708fbdf5410b9db2fd8dd2ede6663
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 16:41:01 2022 +0800
+| 
+|     add dev_data.sqlite for database test
+| 
+* commit c3a7dc19eefb1033e4aec586cbd176b56f00470d
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 05:04:41 2022 +0800
+| 
+|     update after downgrading flask-migrate
+| 
+* commit ba6b19fd9357c39d50cb2ba6b0c3dd8fbf780327
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 05:03:42 2022 +0800
+| 
+|     downgrade flask-migrate to 2.6.0 to fit MigrateCommand
+| 
+* commit c29c56b006cf9e04febf866e0e6e75632f7089a7
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 05:02:39 2022 +0800
+| 
+|     downgrade flask-migrate to v2.6.0 to fit MigrationCommand
+| 
+* commit 317b572e840d5c8f27b56f7870c27aac93bb89bd
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 05:01:36 2022 +0800
+| 
+|     fix some python-compiling errors
+| 
+* commit e41e8dc80ca4fcc83874d563332e8f70e97376c4
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Thu May 5 04:38:57 2022 +0800
+| 
+|     add some frame-work file
+| 
+* commit 2f55914c6bd00df90874182c35ee2c12efdb38f0
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Wed May 4 19:47:32 2022 +0800
+| 
+|     add some pre-test code
+| 
+* commit f3b52e4ccec59044919d830419610935b4c38815
+| Author: jjjjjin <22409515@student.uwa.edu.au>
+| Date:   Wed May 4 19:36:13 2022 +0800
+| 
+|     add dir venv
+| 
+* commit ea9f5676f4fc366e4d1180e3f37f32a23aab52c9
+| Author: JJJJJJin <88881124+JJJJJJin@users.noreply.github.com>
+| Date:   Wed May 4 19:25:26 2022 +0800
+| 
+|     Create app.py
+| 
+* commit 124ac04638fd37e95b47afa9331554ef084fa6ee
+  Author: JJJJJJin <88881124+JJJJJJin@users.noreply.github.com>
+  Date:   Wed May 4 19:25:03 2022 +0800
+  
+      Initial commit

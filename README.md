@@ -63,7 +63,7 @@ Run `python3 manage.py db init`, also `python3 manage.py migrate`, also `python3
 #### Other commands
 Run `python3 manage.py` to see more commands
 
-### NOTICE
+### NOTICE_1
 
 if compiling error occurs such as **Flask-Script: from flask.\_compat import text_type ModuleNotFoundError: No module named 'flask._compat'**
 
@@ -82,3 +82,17 @@ Where
 to
 
 `from flask_script._compat import text_type`
+
+
+### NOTICE_2
+
+if error occurs such as 
+**line 78 \`self._name\`, ^SyntaxError: invalid syntax**
+
+Most likely due to imcompatible dateutil
+
+#### Solution:
+
+```
+pip install -U python-dateutil
+```

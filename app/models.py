@@ -80,7 +80,7 @@ class Text(db.Model):
 		return 'Text: {}'.format(self.text)
 
 	@staticmethod
-	def insert_text():
+	def insert_texts():
 		f = open('app/game_text_example.txt', 'r')
 		for p in f.readlines():
 			db.session.add(Text(text=p))

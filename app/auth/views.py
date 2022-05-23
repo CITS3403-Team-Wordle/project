@@ -1,5 +1,5 @@
 from flask import render_template, session, redirect, url_for, request, jsonify
-import wtforms_json
+#import wtforms_json
 from flask_login import login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 

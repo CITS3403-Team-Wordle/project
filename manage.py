@@ -21,13 +21,17 @@ def test():
 @manager.command
 def deploy():
 	""" Run deployment tasks """
-	from flask_migrate import upgrade
 	from app.models import User, Role, Text
 
 	# migrate db to latest version
-	upgrade()
+	#upgrade()
+	db.drop_all()
+	db.create_all()
 
-	# add other code later...
+	# insert data into db
+	User.insert_users()
+	Role.insert_roles()
+	Text.insert_texts()
 
 
 
